@@ -1,17 +1,17 @@
 import { User } from '../models'
 
 export default function(router){
-  // signin
+  // 登录
   router.post('/api/signin', async (ctx, next) => {
     let {email,password} = ctx.request.body;
     ctx.body = await User.login(ctx, email, password);
   });
-  
-  //signup
+
+  //注册
   router.post('/api/signup', async (ctx, next) => {
     let {username,email,password,repassword} = ctx.request.body;
     if(password !== repassword){
-      ctx.boby = {ok: false,msg: 'liang ci mi ma bu yizhi'};
+      ctx.boby = {ok: false,msg: '两次密码'};
     }else {
       let user = new User({
         username,
@@ -22,18 +22,18 @@ export default function(router){
     }
   })
 
-  //get online user
+  //在线用户
   router.get('/api/user', async (ctx,next) => {
     if(ctx.session.user){
-      ctx.body = {ok: true,msg:'yi deng lu'}
+      ctx.body = {ok: true,msg:'已登录'}
     }else{
-      ctx.body = {ok: false,msg: 'wei deng lu'}
+      ctx.body = {ok: false,msg: '未登录'}
     }
   })
 
-  //signout
+  //推出登录
   router.get('/api/logout',(ctx,next) => {
     delete ctx.session.user;
-    ctx.body = {ok: true, msg:'exit is ok'}
+    ctx.body = {ok: true, msg:'推出成功'}
   })
 }
