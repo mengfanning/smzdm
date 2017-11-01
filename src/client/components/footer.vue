@@ -3,6 +3,7 @@
      <div class="container">
        pahe footer
      </div>
+     
   </footer>
 </template>
 

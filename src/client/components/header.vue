@@ -12,13 +12,14 @@
           <span class="input-group-btn">
             <button class="btn btn-default" type="button">
               <i class="fa fa-search" aria-hidden="true"></i>
-            </button>
+          </button>
           </span>
         </div>
         <div class="hot-search">
           <span>remensousuo</span>
           <span>lingshi</span>
         </div>
+        
       </div>
     </div>
   </div>
